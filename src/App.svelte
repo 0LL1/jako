@@ -1,4 +1,5 @@
 <script>
+  import { calculateDifference } from "./utils";
   import NumberInput from "./NumberInput.svelte";
   import NameInput from "./NameInput.svelte";
 
@@ -12,6 +13,15 @@
   let twoTotal = [null];
   let twoToTwo = [null];
   let twoToOne = [null];
+
+  $: difference = calculateDifference(
+    oneTotal,
+    oneToOne,
+    oneToTwo,
+    twoTotal,
+    twoToTwo,
+    twoToOne
+  );
 </script>
 
 <style>
@@ -67,5 +77,5 @@
     </fieldset>
   </form>
 
-  <h2>result</h2>
+  <h2>{difference}</h2>
 </main>
