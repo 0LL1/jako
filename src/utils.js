@@ -10,8 +10,8 @@ export const calculateDifference = (
 ) => {
   const oneForBoth = reduced(oneTotal) - reduced(oneToOne) - reduced(oneToTwo);
   const twoForBoth = reduced(twoTotal) - reduced(twoToTwo) - reduced(twoToOne);
+  const difference =
+    oneForBoth / 2 - twoForBoth / 2 + reduced(oneToTwo) - reduced(twoToOne);
 
-  return (
-    oneForBoth / 2 - twoForBoth / 2 + reduced(oneToTwo) - reduced(twoToOne)
-  );
+  return difference;
 };

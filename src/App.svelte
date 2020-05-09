@@ -14,6 +14,11 @@
   let twoToTwo = [null];
   let twoToOne = [null];
 
+  let result = "";
+
+  $: oneName = one || "person 1";
+  $: twoName = two || "person 2";
+
   $: difference = calculateDifference(
     oneTotal,
     oneToOne,
@@ -22,12 +27,19 @@
     twoToTwo,
     twoToOne
   );
+
+  $: if (difference > 0)
+    result = `${twoName} pays €${difference.toFixed(2)} to ${oneName}`;
+  else if (difference < 0)
+    result = `${oneName} pays €${-difference.toFixed(2)} to ${twoName}`;
+  else result = "you're even";
 </script>
 
 <style>
   main {
     margin: 0 auto;
     padding: 1rem;
+    max-width: 16rem;
   }
 
   form {
@@ -63,19 +75,19 @@
     </fieldset>
 
     <fieldset class="numbers">
-      <legend>{one || 'person 1'} paid</legend>
+      <legend>{oneName} paid</legend>
       <Number label="total" bind:arr={oneTotal} />
-      <Number label={`for ${one || 'person 1'}`} bind:arr={oneToOne} />
-      <Number label={`for ${two || 'person 2'}`} bind:arr={oneToTwo} />
+      <Number label={`for ${oneName}`} bind:arr={oneToOne} />
+      <Number label={`for ${twoName}`} bind:arr={oneToTwo} />
     </fieldset>
 
     <fieldset class="numbers">
-      <legend>{two || 'person 2'} paid</legend>
+      <legend>{twoName} paid</legend>
       <Number label="total" bind:arr={twoTotal} />
-      <Number label={`for ${two || 'person 2'}`} bind:arr={twoToTwo} />
-      <Number label={`for ${one || 'person 1'}`} bind:arr={twoToOne} />
+      <Number label={`for ${twoName}`} bind:arr={twoToTwo} />
+      <Number label={`for ${oneName}`} bind:arr={twoToOne} />
     </fieldset>
   </form>
 
-  <h2>{difference}</h2>
+  <h2>{result}</h2>
 </main>
