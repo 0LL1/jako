@@ -2,6 +2,14 @@
   export let label;
   export let arr;
 
+  let container;
+
+  const focusOnLast = () => {
+    const divs = container.children;
+    const inputToFocus = divs[divs.length - 2].querySelector("input");
+    inputToFocus.focus();
+  };
+
   const handleClick = () => {
     arr = [...arr, null];
   };
@@ -13,10 +21,11 @@
 
     if (e.key === "Escape" && arr.length > 1) {
       arr = arr.slice(0, -1);
+      focusOnLast();
     }
   };
 
-  const init = (el) => el.focus();
+  const addFocus = (el) => el.focus();
 </script>
 
 <style>
@@ -50,7 +59,7 @@
   }
 </style>
 
-<label>
+<label bind:this={container}>
   {label}
   {#each arr as value, i}
     <div>
@@ -58,7 +67,7 @@
         type="number"
         bind:value={arr[i]}
         on:keydown={handleKeydown}
-        use:init />
+        use:addFocus />
       <button type="button" on:click={handleClick}>&#65291;</button>
     </div>
   {/each}

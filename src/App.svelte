@@ -1,7 +1,7 @@
 <script>
   import { calculateDifference } from "./utils";
-  import NumberInput from "./NumberInput.svelte";
-  import NameInput from "./NameInput.svelte";
+  import Number from "./Number.svelte";
+  import Name from "./Name.svelte";
 
   let one = "";
   let two = "";
@@ -58,22 +58,22 @@
   <form>
     <fieldset>
       <legend>names</legend>
-      <NameInput label="person 1" bind:value={one} />
-      <NameInput label="person 2" bind:value={two} />
+      <Name label="person 1" bind:value={one} />
+      <Name label="person 2" bind:value={two} />
     </fieldset>
 
     <fieldset class="numbers">
       <legend>{one || 'person 1'} paid</legend>
-      <NumberInput label="total" bind:arr={oneTotal} />
-      <NumberInput label={`for ${one || 'person 1'}`} bind:arr={oneToOne} />
-      <NumberInput label={`for ${two || 'person 2'}`} bind:arr={oneToTwo} />
+      <Number label="total" bind:arr={oneTotal} />
+      <Number label={`for ${one || 'person 1'}`} bind:arr={oneToOne} />
+      <Number label={`for ${two || 'person 2'}`} bind:arr={oneToTwo} />
     </fieldset>
 
     <fieldset class="numbers">
       <legend>{two || 'person 2'} paid</legend>
-      <NumberInput label="total" bind:arr={twoTotal} />
-      <NumberInput label={`for ${two || 'person 2'}`} bind:arr={twoToTwo} />
-      <NumberInput label={`for ${one || 'person 1'}`} bind:arr={twoToOne} />
+      <Number label="total" bind:arr={twoTotal} />
+      <Number label={`for ${two || 'person 2'}`} bind:arr={twoToTwo} />
+      <Number label={`for ${one || 'person 1'}`} bind:arr={twoToOne} />
     </fieldset>
   </form>
 
