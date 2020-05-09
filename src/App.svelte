@@ -1,4 +1,5 @@
 <script>
+  import { slide } from "svelte/transition";
   import { reduced, calculateDifference } from "./utils";
   import Number from "./Number.svelte";
   import Name from "./Name.svelte";
@@ -105,7 +106,7 @@
       <Number label="total" bind:arr={oneTotal} bind:warning={oneWarning} />
 
       {#if oneWarning}
-        <p class="warning">{oneWarning}</p>
+        <p transition:slide class="warning">{oneWarning}</p>
       {/if}
 
       <Number label={`for ${oneName}`} bind:arr={oneToOne} warning="" />
@@ -117,7 +118,7 @@
       <Number label="total" bind:arr={twoTotal} bind:warning={twoWarning} />
 
       {#if twoWarning}
-        <p class="warning">{twoWarning}</p>
+        <p transition:slide class="warning">{twoWarning}</p>
       {/if}
 
       <Number label={`for ${twoName}`} bind:arr={twoToTwo} warning="" />
