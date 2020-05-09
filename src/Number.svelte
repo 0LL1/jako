@@ -69,7 +69,9 @@
         bind:value={arr[i]}
         on:keydown={handleKeydown}
         use:addFocus />
-      <button type="button" on:click={handleClick}>&#65291;</button>
+      <button type="button" tabindex="-1" on:click={handleClick}>
+        &#65291;
+      </button>
     </div>
   {/each}
 </label>
