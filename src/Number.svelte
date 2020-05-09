@@ -1,4 +1,5 @@
 <script>
+  import { slide } from "svelte/transition";
   export let label;
   export let arr;
   export let warning;
@@ -69,7 +70,7 @@
 <label bind:this={container}>
   {label}
   {#each arr as value, i}
-    <div>
+    <div transition:slide>
       <input
         type="number"
         class:warning
