@@ -1,1 +1,1 @@
-Tiny app to split the bills.
+Small Svelte app to split the bills.
