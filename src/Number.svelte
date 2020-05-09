@@ -27,7 +27,9 @@
     }
   };
 
-  const addFocus = (el) => el.focus();
+  const addFocus = (el) => {
+    if (arr.length > 1) el.focus();
+  };
 </script>
 
 <style>
