@@ -1,5 +1,5 @@
 <script>
-  import { calculateDifference } from "./utils";
+  import { reduced, calculateDifference } from "./utils";
   import Number from "./Number.svelte";
   import Name from "./Name.svelte";
 
@@ -15,24 +15,43 @@
   let twoToOne = [null];
 
   let result = "";
+  let oneWarning = "";
+  let twoWarning = "";
+
+  $: oneTotalReduced = reduced(oneTotal);
+  $: oneToOneReduced = reduced(oneToOne);
+  $: oneToTwoReduced = reduced(oneToTwo);
+
+  $: twoTotalReduced = reduced(twoTotal);
+  $: twoToTwoReduced = reduced(twoToTwo);
+  $: twoToOneReduced = reduced(twoToOne);
 
   $: oneName = one || "person 1";
   $: twoName = two || "person 2";
 
-  $: difference = calculateDifference(
-    oneTotal,
-    oneToOne,
-    oneToTwo,
-    twoTotal,
-    twoToTwo,
-    twoToOne
-  );
+  $: difference = calculateDifference({
+    oneTotalReduced,
+    oneToOneReduced,
+    oneToTwoReduced,
+    twoTotalReduced,
+    twoToTwoReduced,
+    twoToOneReduced,
+  });
 
   $: if (difference > 0)
     result = `${twoName} pays €${difference.toFixed(2)} to ${oneName}`;
   else if (difference < 0)
     result = `${oneName} pays €${-difference.toFixed(2)} to ${twoName}`;
   else result = "you're even";
+
+  $: oneWarning =
+    oneTotalReduced < oneToOneReduced + oneToTwoReduced
+      ? "total is too small"
+      : "";
+  $: twoWarning =
+    twoTotalReduced < twoToTwoReduced + twoToOneReduced
+      ? "total is too small"
+      : "";
 </script>
 
 <style>
@@ -62,6 +81,13 @@
   h2 {
     text-align: center;
   }
+
+  .warning {
+    margin: 0 0 1rem 0;
+    text-align: left;
+    font-size: 0.75rem;
+    color: #ff4136;
+  }
 </style>
 
 <main>
@@ -76,16 +102,26 @@
 
     <fieldset class="numbers">
       <legend>{oneName} paid</legend>
-      <Number label="total" bind:arr={oneTotal} />
-      <Number label={`for ${oneName}`} bind:arr={oneToOne} />
-      <Number label={`for ${twoName}`} bind:arr={oneToTwo} />
+      <Number label="total" bind:arr={oneTotal} bind:warning={oneWarning} />
+
+      {#if oneWarning}
+        <p class="warning">{oneWarning}</p>
+      {/if}
+
+      <Number label={`for ${oneName}`} bind:arr={oneToOne} warning="" />
+      <Number label={`for ${twoName}`} bind:arr={oneToTwo} warning="" />
     </fieldset>
 
     <fieldset class="numbers">
       <legend>{twoName} paid</legend>
-      <Number label="total" bind:arr={twoTotal} />
-      <Number label={`for ${twoName}`} bind:arr={twoToTwo} />
-      <Number label={`for ${oneName}`} bind:arr={twoToOne} />
+      <Number label="total" bind:arr={twoTotal} bind:warning={twoWarning} />
+
+      {#if twoWarning}
+        <p class="warning">{twoWarning}</p>
+      {/if}
+
+      <Number label={`for ${twoName}`} bind:arr={twoToTwo} warning="" />
+      <Number label={`for ${oneName}`} bind:arr={twoToOne} warning="" />
     </fieldset>
   </form>
 

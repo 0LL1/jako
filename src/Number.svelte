@@ -1,6 +1,7 @@
 <script>
   export let label;
   export let arr;
+  export let warning;
 
   let container;
 
@@ -58,6 +59,11 @@
     border-radius: 50%;
     font-size: 1.5rem;
   }
+
+  .warning {
+    color: #ff4136;
+    border: #ff4136 solid 1px;
+  }
 </style>
 
 <label bind:this={container}>
@@ -66,6 +72,7 @@
     <div>
       <input
         type="number"
+        class:warning
         bind:value={arr[i]}
         on:keydown={handleKeydown}
         use:addFocus />
