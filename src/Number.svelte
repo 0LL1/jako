@@ -12,25 +12,25 @@
     inputToFocus.focus();
   };
 
-  const handleClick = () => {
+  const addInput = () => {
     arr = [...arr, null];
   };
 
-  const handleKeydown = (e, i) => {
-    console.log("handleKeydown -> value", i);
-    if (e.key === "Enter") {
-      arr = [...arr, null];
-    }
-
-    if (e.key === "Escape" && arr.length > 1) {
+  const removeInput = (i) => {
+    if (arr.length > 1) {
       arr.splice(i, 1);
       arr = arr;
       focusOnLast();
     }
   };
 
-  const addFocus = (el) => {
-    if (arr.length > 1) el.focus();
+  const handleKeydown = (e, i) => {
+    if (e.key === "Enter") addInput();
+    if (e.key === "Escape" && arr.length > 1) removeInput(i);
+  };
+
+  const addFocus = (input) => {
+    if (arr.length > 1) input.focus();
   };
 </script>
 
@@ -61,13 +61,17 @@
     background-color: inherit;
     color: var(--green);
     border: none;
-    border-radius: 50%;
     font-size: 1.5rem;
   }
 
   .warning {
     color: var(--warning);
     border: var(--warning) solid 1px;
+  }
+
+  .remove {
+    padding-top: 2px;
+    color: var(--warning);
   }
 </style>
 
@@ -81,8 +85,14 @@
         bind:value={arr[i]}
         on:keydown={(e) => handleKeydown(e, i)}
         use:addFocus />
-      <button type="button" tabindex="-1" on:click={handleClick}>
-        &#65291;
+      <button type="button" tabindex="-1" on:click={addInput}>&#65291;</button>
+      <button
+        class="remove"
+        type="button"
+        tabindex="-1"
+        on:click={() => removeInput(i)}
+        disabled={arr.length < 2}>
+        &minus;
       </button>
     </div>
   {/each}
