@@ -4,6 +4,10 @@
   import Number from "./Number.svelte";
   import Name from "./Name.svelte";
 
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js");
+  }
+
   let one = "";
   let two = "";
 
