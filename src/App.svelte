@@ -5,7 +5,7 @@
   import Name from "./Name.svelte";
 
   if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js");
+    navigator.serviceWorker.register("/serviceWorker.js");
   }
 
   let one = "";
