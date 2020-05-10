@@ -44,13 +44,13 @@
 
   label {
     text-align: left;
-    color: #aaa;
+    color: var(--light-grey);
   }
   input {
     margin-right: 1rem;
     width: 80%;
-    background-color: #222;
-    color: #fff;
+    background-color: var(--dark-grey);
+    color: var(--white);
     border: none;
   }
 
@@ -59,15 +59,15 @@
     width: 2rem;
     height: 2rem;
     background-color: inherit;
-    color: #2ecc40;
+    color: var(--green);
     border: none;
     border-radius: 50%;
     font-size: 1.5rem;
   }
 
   .warning {
-    color: #ff4136;
-    border: #ff4136 solid 1px;
+    color: var(--warning);
+    border: var(--warning) solid 1px;
   }
 </style>
 
