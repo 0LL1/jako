@@ -5,14 +5,14 @@
 
 <style>
   label {
-    text-align: left;
-    color: #aaa;
+    color: var(--light-grey);
   }
   input {
+    text-align: center;
     margin-top: 0.5rem;
     width: 100%;
-    background-color: #222;
-    color: #fff;
+    background-color: var(--dark-grey);
+    color: var(--white);
     border: none;
   }
 </style>

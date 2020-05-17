@@ -43,11 +43,11 @@
   }
 
   label {
-    text-align: left;
     color: var(--light-grey);
   }
   input {
-    margin-right: 1rem;
+    text-align: center;
+    margin: 0 1rem;
     width: 80%;
     background-color: var(--dark-grey);
     color: var(--white);
@@ -78,13 +78,6 @@
   {label}
   {#each arr as value, i (i)}
     <div transition:slide>
-      <input
-        type="number"
-        class:warning
-        bind:value={arr[i]}
-        on:keydown={(e) => handleKeydown(e, i)}
-        use:addFocus />
-      <button type="button" tabindex="-1" on:click={addInput}>&#65291;</button>
       <button
         class="remove"
         type="button"
@@ -93,6 +86,13 @@
         disabled={arr.length < 2}>
         &minus;
       </button>
+      <input
+        type="number"
+        class:warning
+        bind:value={arr[i]}
+        on:keydown={(e) => handleKeydown(e, i)}
+        use:addFocus />
+      <button type="button" tabindex="-1" on:click={addInput}>&#65291;</button>
     </div>
   {/each}
 </label>

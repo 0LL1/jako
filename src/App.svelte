@@ -63,12 +63,12 @@
   main {
     margin: 0 auto;
     padding: 1rem;
-    max-width: 16rem;
+    max-width: 30rem;
   }
 
   form {
     margin: 0 auto;
-    width: 14rem;
+    width: 100%;
   }
 
   fieldset {
@@ -89,7 +89,6 @@
 
   .warning {
     margin: 0 0 1rem 0;
-    text-align: left;
     font-size: 0.75rem;
     color: var(--warning);
   }
