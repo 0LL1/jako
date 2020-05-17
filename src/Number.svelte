@@ -65,6 +65,10 @@
     font-size: 1.5rem;
   }
 
+  button:disabled {
+    visibility: hidden;
+  }
+
   .warning {
     color: var(--warning);
     border-bottom: solid 0.125rem var(--warning);

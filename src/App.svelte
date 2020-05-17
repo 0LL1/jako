@@ -84,9 +84,17 @@
   h1,
   h2 {
     text-align: center;
+    font-weight: 400;
+  }
+
+  img {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 
   .warning {
+    text-align: center;
     margin: 0 0 1rem 0;
     font-size: 0.75rem;
     color: var(--warning);
@@ -94,6 +102,12 @@
 </style>
 
 <main>
+  <a
+    href="https://github.com/0LL1/jako"
+    target="_blank"
+    rel="noreferrer noopener">
+    <img src="./icons/github.png" alt="link to GitHub" />
+  </a>
   <h1>JAKO</h1>
 
   <form>
