@@ -74,12 +74,11 @@
   fieldset {
     margin: 1rem 0;
     padding: 1rem;
-    border: solid 0.125rem var(--dark-grey);
-    text-align: center;
+    text-align: left;
   }
 
   legend {
-    color: var(--light-grey);
+    color: var(--white);
   }
 
   h1,

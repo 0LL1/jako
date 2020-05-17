@@ -40,8 +40,9 @@ textarea {
   padding: 0.4em;
   margin: 0 0 0.5em 0;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 2px;
+  outline: none;
 }
 
 input:disabled {
@@ -68,4 +69,8 @@ button:not(:disabled):active {
 
 button:focus {
   border-color: #666;
+}
+
+fieldset {
+  border: none;
 }

@@ -5,15 +5,17 @@
 
 <style>
   label {
+    text-align: center;
     color: var(--light-grey);
   }
   input {
     text-align: center;
     margin-top: 0.5rem;
     width: 100%;
-    background-color: var(--dark-grey);
+    background-color: inherit;
     color: var(--white);
     border: none;
+    border-bottom: solid 0.125rem var(--dark-grey);
   }
 </style>
 

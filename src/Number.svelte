@@ -43,15 +43,16 @@
   }
 
   label {
+    text-align: center;
     color: var(--light-grey);
   }
   input {
     text-align: center;
     margin: 0 1rem;
     width: 80%;
-    background-color: var(--dark-grey);
+    background-color: inherit;
     color: var(--white);
-    border: none;
+    border-bottom: solid 0.125rem var(--dark-grey);
   }
 
   button {
@@ -66,7 +67,7 @@
 
   .warning {
     color: var(--warning);
-    border: var(--warning) solid 1px;
+    border-bottom: solid 0.125rem var(--warning);
   }
 
   .remove {
