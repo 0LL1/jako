@@ -70,7 +70,6 @@
   }
 
   .remove {
-    padding-top: 2px;
     color: var(--warning);
   }
 </style>

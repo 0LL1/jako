@@ -24,7 +24,7 @@ body {
   margin: 0;
   padding: 8px;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Fira Mono", monospace;
 }
 
 label {
