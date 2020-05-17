@@ -106,7 +106,7 @@
     href="https://github.com/0LL1/jako"
     target="_blank"
     rel="noreferrer noopener">
-    <img src="./icons/github.png" alt="link to GitHub" />
+    <img src="./icons/GitHub.png" alt="link to GitHub" />
   </a>
   <h1>JAKO</h1>
 
