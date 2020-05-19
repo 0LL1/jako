@@ -44,9 +44,9 @@
   });
 
   $: if (difference > 0)
-    result = `${twoName} pays €${difference.toFixed(2)} to ${oneName}`;
+    result = `${twoName} pays ${difference.toFixed(2)} to ${oneName}`;
   else if (difference < 0)
-    result = `${oneName} pays €${-difference.toFixed(2)} to ${twoName}`;
+    result = `${oneName} pays ${-difference.toFixed(2)} to ${twoName}`;
   else result = "you're even";
 
   $: oneWarning =
