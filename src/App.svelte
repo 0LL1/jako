@@ -1,5 +1,5 @@
 <script>
-  import { slide } from "svelte/transition";
+  import { fade, slide } from "svelte/transition";
   import { reduced, calculateDifference } from "./utils";
   import Number from "./Number.svelte";
   import Name from "./Name.svelte";
@@ -70,7 +70,7 @@
 
   main {
     margin: 2rem auto;
-    max-width: 30rem;
+    max-width: 25rem;
   }
 
   form {
@@ -80,6 +80,7 @@
 
   fieldset {
     margin: 1rem 0;
+    padding: 0.5rem;
     text-align: left;
     border: none;
   }
@@ -101,7 +102,7 @@
   }
 </style>
 
-<header>
+<header transition:fade={{ duration: 1000 }}>
   <h1>jako</h1>
   <a
     href="https://github.com/0LL1/jako"
@@ -111,7 +112,7 @@
   </a>
 </header>
 
-<main>
+<main transition:fade={{ duration: 1000 }}>
   <form>
     <fieldset>
       <legend>names:</legend>
@@ -124,7 +125,7 @@
       <Number label="total" bind:arr={oneTotal} bind:warning={oneWarning} />
 
       {#if oneWarning}
-        <p transition:slide class="warning">{oneWarning}</p>
+        <p transition:slide={{ duration: 200 }} class="warning">{oneWarning}</p>
       {/if}
 
       <Number label={`for ${oneName}`} bind:arr={oneToOne} warning="" />
@@ -136,7 +137,7 @@
       <Number label="total" bind:arr={twoTotal} bind:warning={twoWarning} />
 
       {#if twoWarning}
-        <p transition:slide class="warning">{twoWarning}</p>
+        <p transition:slide={{ duration: 200 }} class="warning">{twoWarning}</p>
       {/if}
 
       <Number label={`for ${twoName}`} bind:arr={twoToTwo} warning="" />

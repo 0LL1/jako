@@ -84,7 +84,7 @@
 <label bind:this={container}>
   {label}
   {#each arr as value, i (i)}
-    <div transition:slide class:warning>
+    <div transition:slide={{ duration: 200 }} class:warning>
       <button
         class="remove"
         type="button"
