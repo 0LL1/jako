@@ -60,9 +60,16 @@
 </script>
 
 <style>
+  header {
+    margin: 0.5rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   main {
-    margin: 0 auto;
-    padding: 1rem;
+    margin: 2rem auto;
     max-width: 30rem;
   }
 
@@ -73,24 +80,17 @@
 
   fieldset {
     margin: 1rem 0;
-    padding: 1rem;
     text-align: left;
+    border: none;
   }
 
   legend {
-    color: var(--white);
-  }
-
-  h1,
-  h2 {
     text-align: center;
-    font-weight: 400;
+    color: var(--light-grey);
   }
 
-  img {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+  p {
+    text-align: center;
   }
 
   .warning {
@@ -101,24 +101,26 @@
   }
 </style>
 
-<main>
+<header>
+  <h1>jako</h1>
   <a
     href="https://github.com/0LL1/jako"
     target="_blank"
     rel="noreferrer noopener">
     <img src="./icons/GitHub.png" alt="link to GitHub" />
   </a>
-  <h1>JAKO</h1>
+</header>
 
+<main>
   <form>
     <fieldset>
-      <legend>names</legend>
+      <legend>names:</legend>
       <Name label="person 1" bind:value={one} />
       <Name label="person 2" bind:value={two} />
     </fieldset>
 
     <fieldset class="numbers">
-      <legend>{oneName} paid</legend>
+      <legend>{oneName} paid:</legend>
       <Number label="total" bind:arr={oneTotal} bind:warning={oneWarning} />
 
       {#if oneWarning}
@@ -130,7 +132,7 @@
     </fieldset>
 
     <fieldset class="numbers">
-      <legend>{twoName} paid</legend>
+      <legend>{twoName} paid:</legend>
       <Number label="total" bind:arr={twoTotal} bind:warning={twoWarning} />
 
       {#if twoWarning}
@@ -142,5 +144,5 @@
     </fieldset>
   </form>
 
-  <h2>{result}</h2>
+  <p>{result}</p>
 </main>

@@ -38,8 +38,9 @@
   div {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    margin-top: 0.5rem;
+    align-items: center;
+    margin: 0.5rem 0;
+    border: solid 0.125rem var(--dark-grey);
   }
 
   label {
@@ -48,14 +49,14 @@
   }
   input {
     text-align: center;
-    margin: 0 1rem;
-    width: 80%;
+    margin: 0;
+    width: 100%;
     background-color: inherit;
     color: var(--white);
-    border-bottom: solid 0.125rem var(--dark-grey);
   }
 
   button {
+    margin: 0;
     padding: 0;
     width: 2rem;
     height: 2rem;
@@ -63,6 +64,7 @@
     color: var(--green);
     border: none;
     font-size: 1.5rem;
+    cursor: pointer;
   }
 
   button:disabled {
@@ -71,7 +73,7 @@
 
   .warning {
     color: var(--warning);
-    border-bottom: solid 0.125rem var(--warning);
+    border: solid 0.125rem var(--warning);
   }
 
   .remove {
@@ -82,7 +84,7 @@
 <label bind:this={container}>
   {label}
   {#each arr as value, i (i)}
-    <div transition:slide>
+    <div transition:slide class:warning>
       <button
         class="remove"
         type="button"
@@ -93,7 +95,6 @@
       </button>
       <input
         type="number"
-        class:warning
         bind:value={arr[i]}
         on:keydown={(e) => handleKeydown(e, i)}
         use:addFocus />

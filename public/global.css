@@ -22,13 +22,10 @@ body {
   background-color: var(--black);
   color: var(--white);
   margin: 0;
-  padding: 8px;
+  padding: 0.5rem;
   box-sizing: border-box;
   font-family: "Fira Mono", monospace;
-}
-
-label {
-  display: block;
+  text-transform: uppercase;
 }
 
 input,
@@ -37,40 +34,9 @@ select,
 textarea {
   font-family: inherit;
   font-size: inherit;
-  padding: 0.4em;
-  margin: 0 0 0.5em 0;
+  padding: 0.5rem;
   box-sizing: border-box;
   border: none;
-  border-radius: 2px;
   outline: none;
-}
-
-input:disabled {
-  color: #ccc;
-}
-
-input[type="range"] {
-  height: 0;
-}
-
-button {
-  color: #333;
-  background-color: #f4f4f4;
-  outline: none;
-}
-
-button:disabled {
-  color: #999;
-}
-
-button:not(:disabled):active {
-  background-color: #ddd;
-}
-
-button:focus {
-  border-color: #666;
-}
-
-fieldset {
-  border: none;
+  text-transform: uppercase;
 }
