@@ -68,6 +68,14 @@
     align-items: center;
   }
 
+  h1 {
+    margin: 0;
+  }
+
+  img {
+    height: 2rem;
+  }
+
   main {
     margin: 2rem auto;
     max-width: 25rem;
