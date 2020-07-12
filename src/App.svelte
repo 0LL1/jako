@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { fade, slide } from "svelte/transition";
   import { reduced, calculateDifference } from "./utils";
   import Number from "./Number.svelte";
