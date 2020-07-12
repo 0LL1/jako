@@ -1,22 +1,22 @@
-<script>
+<script lang="ts">
   import { slide } from "svelte/transition";
-  export let label;
-  export let arr;
-  export let warning;
+  export let label: string;
+  export let arr: (number | null)[];
+  export let warning: string;
 
-  let container;
+  let container: HTMLElement;
 
-  const focusOnLast = () => {
+  const focusOnLast = (): void => {
     const divs = container.children;
     const inputToFocus = divs[divs.length - 2].querySelector("input");
     inputToFocus.focus();
   };
 
-  const addInput = () => {
+  const addInput = (): void => {
     arr = [...arr, null];
   };
 
-  const removeInput = (i) => {
+  const removeInput = (i: number): void => {
     if (arr.length > 1) {
       arr.splice(i, 1);
       arr = arr;
@@ -24,12 +24,12 @@
     }
   };
 
-  const handleKeydown = (e, i) => {
+  const handleKeydown = (e: KeyboardEvent, i: number) => {
     if (e.key === "Enter") addInput();
     if (e.key === "Escape" && arr.length > 1) removeInput(i);
   };
 
-  const addFocus = (input) => {
+  const addFocus = (input: HTMLElement): void => {
     if (arr.length > 1) input.focus();
   };
 </script>
@@ -83,12 +83,12 @@
 
 <label bind:this={container}>
   {label}
-  {#each arr as value, i (i)}
+  {#each arr as _value, i (i)}
     <div transition:slide={{ duration: 200 }} class:warning>
       <button
         class="remove"
         type="button"
-        tabindex="-1"
+        tabindex={-1}
         on:click={() => removeInput(i)}
         disabled={arr.length < 2}>
         &minus;
@@ -98,7 +98,7 @@
         bind:value={arr[i]}
         on:keydown={(e) => handleKeydown(e, i)}
         use:addFocus />
-      <button type="button" tabindex="-1" on:click={addInput}>&#65291;</button>
+      <button type="button" tabindex={-1} on:click={addInput}>&#65291;</button>
     </div>
   {/each}
 </label>

@@ -8,20 +8,33 @@
     navigator.serviceWorker.register("/serviceWorker.js");
   }
 
-  let one = "";
-  let two = "";
+  let one: string = "";
+  let two: string = "";
 
-  let oneTotal = [null];
-  let oneToOne = [null];
-  let oneToTwo = [null];
+  let oneTotal: (number | null)[] = [null];
+  let oneToOne: (number | null)[] = [null];
+  let oneToTwo: (number | null)[] = [null];
 
-  let twoTotal = [null];
-  let twoToTwo = [null];
-  let twoToOne = [null];
+  let twoTotal: (number | null)[] = [null];
+  let twoToTwo: (number | null)[] = [null];
+  let twoToOne: (number | null)[] = [null];
 
-  let result = "";
-  let oneWarning = "";
-  let twoWarning = "";
+  let result: string = "";
+  let oneWarning: string = "";
+  let twoWarning: string = "";
+
+  let oneTotalReduced: number;
+  let oneToOneReduced: number;
+  let oneToTwoReduced: number;
+
+  let twoTotalReduced: number;
+  let twoToTwoReduced: number;
+  let twoToOneReduced: number;
+
+  let oneName: string;
+  let twoName: string;
+
+  let difference: number;
 
   $: oneTotalReduced = reduced(oneTotal);
   $: oneToOneReduced = reduced(oneToOne);

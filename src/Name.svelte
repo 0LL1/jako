@@ -1,6 +1,6 @@
-<script>
-  export let value;
-  export let label;
+<script lang="ts">
+  export let value: string;
+  export let label: string;
 </script>
 
 <style>
@@ -28,6 +28,6 @@
 <label>
   {label}
   <div>
-    <input type="text" maxlength="20" bind:value />
+    <input type="text" maxlength={20} bind:value />
   </div>
 </label>
