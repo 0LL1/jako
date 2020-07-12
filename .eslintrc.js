@@ -4,9 +4,8 @@ module.exports = {
     project: "tsconfig.json",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint/eslint-plugin", "svelte3"],
+  plugins: ["@typescript-eslint", "svelte3"],
   extends: [
-    "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
