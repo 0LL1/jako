@@ -29,7 +29,7 @@
     if (e.key === "Escape" && arr.length > 1) removeInput(i);
   };
 
-  const addFocus = (input: HTMLElement): void => {
+  const addFocus = (input: HTMLElement): any => {
     if (arr.length > 1) input.focus();
   };
 </script>
