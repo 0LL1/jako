@@ -34,6 +34,31 @@
   };
 </script>
 
+<label for="number-input" bind:this={container}>
+  {label}
+  {#each arr as _value, i (i)}
+    <div transition:slide={{ duration: 200 }} class:warning>
+      <button
+        class="remove"
+        type="button"
+        tabindex={-1}
+        on:click={() => removeInput(i)}
+        disabled={arr.length < 2}
+      >
+        &minus;
+      </button>
+      <input
+        name="number-input"
+        type="number"
+        bind:value={arr[i]}
+        on:keydown={(e) => handleKeydown(e, i)}
+        use:addFocus
+      />
+      <button type="button" tabindex={-1} on:click={addInput}>&#65291;</button>
+    </div>
+  {/each}
+</label>
+
 <style>
   div {
     display: flex;
@@ -80,25 +105,3 @@
     color: var(--warning);
   }
 </style>
-
-<label bind:this={container}>
-  {label}
-  {#each arr as _value, i (i)}
-    <div transition:slide={{ duration: 200 }} class:warning>
-      <button
-        class="remove"
-        type="button"
-        tabindex={-1}
-        on:click={() => removeInput(i)}
-        disabled={arr.length < 2}>
-        &minus;
-      </button>
-      <input
-        type="number"
-        bind:value={arr[i]}
-        on:keydown={(e) => handleKeydown(e, i)}
-        use:addFocus />
-      <button type="button" tabindex={-1} on:click={addInput}>&#65291;</button>
-    </div>
-  {/each}
-</label>

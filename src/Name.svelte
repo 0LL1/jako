@@ -3,6 +3,13 @@
   export let label: string;
 </script>
 
+<label for="name-input">
+  {label}
+  <div>
+    <input name="name-input" type="text" maxlength={20} bind:value />
+  </div>
+</label>
+
 <style>
   div {
     display: flex;
@@ -24,10 +31,3 @@
     color: var(--white);
   }
 </style>
-
-<label>
-  {label}
-  <div>
-    <input type="text" maxlength={20} bind:value />
-  </div>
-</label>

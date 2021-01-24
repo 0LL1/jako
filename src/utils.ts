@@ -1,4 +1,4 @@
-import { DifferenceNumbers } from "./types";
+import type { DifferenceNumbers } from "./types";
 
 export const reduced = (arr: number[]): number =>
   arr.reduce((a = 0, c = 0): number => a + c, 0);

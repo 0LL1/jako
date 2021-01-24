@@ -72,6 +72,53 @@
       : "";
 </script>
 
+<header transition:fade={{ duration: 1000 }}>
+  <h1>jako</h1>
+  <a
+    href="https://github.com/0LL1/jako"
+    target="_blank"
+    rel="noreferrer noopener"
+  >
+    <img src="./icons/GitHub.png" alt="link to GitHub" />
+  </a>
+</header>
+
+<main transition:fade={{ duration: 1000 }}>
+  <form>
+    <fieldset>
+      <legend>names:</legend>
+      <Name label="person 1" bind:value={one} />
+      <Name label="person 2" bind:value={two} />
+    </fieldset>
+
+    <fieldset class="numbers">
+      <legend>{oneName} paid:</legend>
+      <Number label="total" bind:arr={oneTotal} bind:warning={oneWarning} />
+
+      {#if oneWarning}
+        <p transition:slide={{ duration: 200 }} class="warning">{oneWarning}</p>
+      {/if}
+
+      <Number label={`for ${oneName}`} bind:arr={oneToOne} warning="" />
+      <Number label={`for ${twoName}`} bind:arr={oneToTwo} warning="" />
+    </fieldset>
+
+    <fieldset class="numbers">
+      <legend>{twoName} paid:</legend>
+      <Number label="total" bind:arr={twoTotal} bind:warning={twoWarning} />
+
+      {#if twoWarning}
+        <p transition:slide={{ duration: 200 }} class="warning">{twoWarning}</p>
+      {/if}
+
+      <Number label={`for ${twoName}`} bind:arr={twoToTwo} warning="" />
+      <Number label={`for ${oneName}`} bind:arr={twoToOne} warning="" />
+    </fieldset>
+  </form>
+
+  <p>{result}</p>
+</main>
+
 <style>
   header {
     margin: 0.5rem;
@@ -122,49 +169,3 @@
     color: var(--warning);
   }
 </style>
-
-<header transition:fade={{ duration: 1000 }}>
-  <h1>jako</h1>
-  <a
-    href="https://github.com/0LL1/jako"
-    target="_blank"
-    rel="noreferrer noopener">
-    <img src="./icons/GitHub.png" alt="link to GitHub" />
-  </a>
-</header>
-
-<main transition:fade={{ duration: 1000 }}>
-  <form>
-    <fieldset>
-      <legend>names:</legend>
-      <Name label="person 1" bind:value={one} />
-      <Name label="person 2" bind:value={two} />
-    </fieldset>
-
-    <fieldset class="numbers">
-      <legend>{oneName} paid:</legend>
-      <Number label="total" bind:arr={oneTotal} bind:warning={oneWarning} />
-
-      {#if oneWarning}
-        <p transition:slide={{ duration: 200 }} class="warning">{oneWarning}</p>
-      {/if}
-
-      <Number label={`for ${oneName}`} bind:arr={oneToOne} warning="" />
-      <Number label={`for ${twoName}`} bind:arr={oneToTwo} warning="" />
-    </fieldset>
-
-    <fieldset class="numbers">
-      <legend>{twoName} paid:</legend>
-      <Number label="total" bind:arr={twoTotal} bind:warning={twoWarning} />
-
-      {#if twoWarning}
-        <p transition:slide={{ duration: 200 }} class="warning">{twoWarning}</p>
-      {/if}
-
-      <Number label={`for ${twoName}`} bind:arr={twoToTwo} warning="" />
-      <Number label={`for ${oneName}`} bind:arr={twoToOne} warning="" />
-    </fieldset>
-  </form>
-
-  <p>{result}</p>
-</main>
