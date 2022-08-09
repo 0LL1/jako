@@ -20,6 +20,7 @@
   let twoToOne: (number | null)[] = [null];
 
   let result: string = "";
+  let totalString = "";
   let oneWarning: string = "";
   let twoWarning: string = "";
 
@@ -61,6 +62,11 @@
   else if (difference < 0)
     result = `${oneName} pays ${-difference.toFixed(2)} to ${twoName}`;
   else result = "you're even";
+
+  $: if (oneTotalReduced || twoTotalReduced)
+    totalString = `Total cost: ${
+      oneTotalReduced + twoTotalReduced
+    } (${oneTotalReduced} + ${twoTotalReduced})`;
 
   $: oneWarning =
     oneTotalReduced < oneToOneReduced + oneToTwoReduced
@@ -117,6 +123,7 @@
   </form>
 
   <p>{result}</p>
+  <p>{totalString}</p>
 </main>
 
 <style>
