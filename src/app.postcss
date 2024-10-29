@@ -1,0 +1,54 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  ::backdrop {
+    @apply bg-black bg-opacity-50;
+  }
+
+  body {
+    @apply font-body;
+  }
+}
+
+@layer components {
+  .input {
+    @apply rounded-md;
+    @apply border-none bg-gray-100;
+    @apply dark:bg-gray-800 dark:text-light;
+
+    &:hover {
+      @apply brightness-95 dark:brightness-125;
+    }
+
+    &:focus {
+      @apply outline-none;
+      @apply ring-2;
+      @apply ring-focus dark:ring-focus-light;
+    }
+
+    &[aria-invalid="true"] {
+      @apply ring-danger dark:ring-danger-light;
+    }
+  }
+
+  .btn {
+    @apply flex;
+    @apply items-center;
+    @apply gap-1;
+    @apply justify-center;
+    @apply rounded-full;
+    @apply px-2 py-1;
+
+    &:hover {
+      @apply bg-gray-100 dark:bg-gray-800;
+    }
+
+    &:focus {
+      @apply outline-none;
+      @apply ring-2;
+      @apply ring-focus dark:ring-focus-light;
+    }
+  }
+}
