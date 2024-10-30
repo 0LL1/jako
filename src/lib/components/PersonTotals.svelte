@@ -20,7 +20,7 @@
   </div>
 {/snippet}
 
-<div class="space-y-2 font-extrabold">
+<div class="space-y-2 text-center font-extrabold">
   {#if person.name !== ""}
     <div class="uppercase">
       {person.name}
