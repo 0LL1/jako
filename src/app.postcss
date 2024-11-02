@@ -7,8 +7,17 @@
     @apply bg-black bg-opacity-50;
   }
 
+  html {
+    @apply bg-light;
+
+    &.dark {
+      @apply bg-dark;
+    }
+  }
+
   body {
     @apply font-body;
+    @apply bg-light dark:bg-dark;
   }
 }
 
