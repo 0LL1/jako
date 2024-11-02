@@ -24,6 +24,13 @@
   themeState.value = data.theme;
 </script>
 
+<svelte:head>
+  <meta
+    name="theme-color"
+    content={`${themeState.value === "dark" ? "#030712" : "#ffffff"}`}
+  />
+</svelte:head>
+
 <ItemDialog />
 <div
   class="grid h-screen grid-rows-[auto_1fr_auto] dark:bg-dark dark:text-light"
