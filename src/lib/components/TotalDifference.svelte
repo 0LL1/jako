@@ -13,7 +13,9 @@
   );
 </script>
 
-<div class="flex items-baseline gap-2 font-extrabold uppercase">
+<div
+  class="flex flex-wrap items-baseline gap-x-2 gap-y-0 font-extrabold uppercase"
+>
   {#if diff === 0}
     {personOne.name} and {personTwo.name} are even
   {:else}
