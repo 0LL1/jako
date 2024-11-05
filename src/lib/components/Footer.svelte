@@ -14,7 +14,7 @@
   <footer
     class="dark:shadow-none sticky bottom-0 z-10 space-y-4 bg-light p-4 shadow dark:border-t dark:border-gray-800 dark:bg-dark dark:text-light"
   >
-    <div class="flex">
+    <div class="flex gap-2">
       {#if personOneState.value?.name && personTwoState.value?.name}
         <div class="mx-auto">
           <TotalDifference

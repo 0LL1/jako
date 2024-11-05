@@ -23,9 +23,9 @@
     <NameInput label="Name" bind:name={person.name} autofocus />
   {:else}
     <fieldset class="space-y-4">
-      <div class="flex items-center justify-between gap-4">
+      <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
         <legend class="font-extrabold uppercase">{person.name}</legend>
-        <div class="flex">
+        <div class="ml-auto flex">
           <button
             type="button"
             onclick={(): string => (person.name = "")}

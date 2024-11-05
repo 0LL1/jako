@@ -22,7 +22,7 @@
 
 <div class="space-y-2 text-center font-extrabold">
   {#if person.name !== ""}
-    <div class="uppercase">
+    <div class="max-w-full truncate uppercase">
       {person.name}
     </div>
     {@render total("total", person.total)}

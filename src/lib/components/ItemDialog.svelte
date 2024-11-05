@@ -30,7 +30,7 @@
 <dialog
   id="edit-item"
   bind:this={dialogElement}
-  class="shadow-lg dark:shadow-none z-20 rounded-lg border-8 bg-light p-8 text-dark dark:bg-dark dark:text-light"
+  class="shadow-lg dark:shadow-none z-20 min-w-[22rem] rounded-lg border-8 bg-light p-8 text-dark dark:bg-dark dark:text-light"
   class:border-blue={itemDialogState.value.type === "total"}
   class:border-green={itemDialogState.value.type === "forSelf"}
   class:border-red={itemDialogState.value.type === "forOther"}

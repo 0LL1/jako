@@ -17,6 +17,7 @@
     type="text"
     class="input"
     aria-invalid={invalid ? "true" : undefined}
+    maxlength="15"
     bind:value
     onkeydown={(e): void => {
       invalid = false;
