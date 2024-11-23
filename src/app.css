@@ -1,19 +1,39 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-*: initial;
+  --font-body: "Outfit Variable", "sans-serif";
+
+  --color-dark: var(--color-gray-950);
+  --color-light: var(--color-white);
+  --color-focus-light: var(--color-blue-400);
+  --color-focus: var(--color-blue-600);
+  --color-danger-light: var(--color-red-400);
+  --color-danger: var(--color-red-600);
+  --color-blue: var(--color-blue-300);
+  --color-green: var(--color-green-300);
+  --color-red: var(--color-red-300);
+
+  --shadow-*: initial;
+  --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
 
 @layer base {
   ::backdrop {
-    @apply bg-black bg-opacity-50;
+    @apply bg-dark/50;
   }
 
   html {
     @apply bg-light;
-    color-scheme: light;
+    @apply scheme-light;
 
     &.dark {
       @apply bg-dark;
-      color-scheme: dark;
+      @apply scheme-dark;
     }
   }
 
@@ -27,7 +47,7 @@
   .input {
     @apply rounded-full;
     @apply border-none bg-gray-100;
-    @apply dark:bg-gray-800 dark:text-light;
+    @apply dark:text-light dark:bg-gray-800;
 
     &:hover {
       @apply brightness-95 dark:brightness-125;

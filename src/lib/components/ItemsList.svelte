@@ -34,21 +34,21 @@
 <div class="flex flex-wrap gap-1">
   {#each items as item, index (index)}
     <div
-      class="flex items-center rounded-full text-dark hover:brightness-110 focus:ring-dark"
+      class="text-dark focus:ring-dark flex items-center rounded-full hover:brightness-110"
       class:bg-blue={type === "total"}
       class:bg-green={type === "forSelf"}
       class:bg-red={type === "forOther"}
     >
       <button
         type="button"
-        class="btn text-sm font-extrabold hover:!bg-inherit"
+        class="btn bg-transparent text-sm font-extrabold"
         onclick={() => selectToEdit(index)}
       >
         {item.toFixed(2)}
       </button>
       <button
         type="button"
-        class="btn size-7 p-0 hover:!bg-inherit"
+        class="btn size-7 bg-transparent p-0"
         onclick={(): void => removeItem(index)}
         aria-label="Remove item"
       >

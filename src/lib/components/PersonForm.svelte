@@ -17,7 +17,7 @@
 </script>
 
 <form
-  class="dark:shadow-none h-fit w-full rounded-lg p-4 shadow dark:border dark:border-gray-800"
+  class="h-fit w-full rounded-lg p-4 shadow dark:border dark:border-gray-800 dark:shadow-none"
 >
   {#if person?.name === ""}
     <NameInput label="Name" bind:name={person.name} autofocus />
