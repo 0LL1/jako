@@ -9,7 +9,7 @@
   } from "$lib/state.svelte";
   import "@fontsource-variable/outfit";
   import type { Snippet } from "svelte";
-  import "../app.postcss";
+  import "../app.css";
   import type { LayoutData } from "./$types";
 
   type Props = {
@@ -33,7 +33,7 @@
 
 <ItemDialog />
 <div
-  class="grid h-screen grid-rows-[auto_1fr_auto] dark:bg-dark dark:text-light"
+  class="dark:bg-dark dark:text-light grid h-screen grid-rows-[auto_1fr_auto]"
 >
   <Header />
   <main class="mx-auto w-full max-w-screen-xl px-4 py-8">

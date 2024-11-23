@@ -30,14 +30,14 @@
 <dialog
   id="edit-item"
   bind:this={dialogElement}
-  class="shadow-lg dark:shadow-none z-20 min-w-[22rem] rounded-lg border-8 bg-light p-8 text-dark dark:bg-dark dark:text-light"
+  class="bg-light text-dark dark:bg-dark dark:text-light z-20 m-auto min-w-88 rounded-lg border-8 p-8 shadow-lg dark:shadow-none"
   class:border-blue={itemDialogState.value.type === "total"}
   class:border-green={itemDialogState.value.type === "forSelf"}
   class:border-red={itemDialogState.value.type === "forOther"}
 >
   {#key itemDialogState.value.value}
     <div
-      class="absolute right-1 top-1"
+      class="absolute top-1 right-1"
       class:text-blue={itemDialogState.value.type === "total"}
       class:text-green={itemDialogState.value.type === "forSelf"}
       class:text-red={itemDialogState.value.type === "forOther"}

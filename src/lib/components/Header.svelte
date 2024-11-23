@@ -5,7 +5,7 @@
 </script>
 
 <header
-  class="dark:shadow-none sticky top-0 z-10 flex items-center justify-between bg-light p-4 text-dark shadow dark:border-b dark:border-gray-800 dark:bg-dark dark:text-light"
+  class="bg-light text-dark dark:bg-dark dark:text-light sticky top-0 z-10 flex items-center justify-between p-4 shadow dark:border-b dark:border-gray-800 dark:shadow-none"
 >
   <h1 class="text-4xl font-extrabold">JAKO</h1>
 
