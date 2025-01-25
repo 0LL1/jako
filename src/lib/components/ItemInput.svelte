@@ -7,7 +7,13 @@
     initialValue?: number;
   } & HTMLInputAttributes;
 
-  let { label, onSubmit, initialValue, ...restProps }: Props = $props();
+  let {
+    label,
+    onSubmit,
+    initialValue = $bindable(),
+    ...restProps
+  }: Props = $props();
+
   let value: number | undefined = $state(initialValue);
   let invalid: boolean = $state(false);
 </script>
@@ -17,7 +23,6 @@
   <input
     type="number"
     min="0"
-    max="9999"
     class="input"
     aria-invalid={invalid ? "true" : undefined}
     bind:value
@@ -25,7 +30,7 @@
       invalid = false;
 
       if (e.key === "Enter") {
-        if (value && value >= 0 && value <= 9999) {
+        if (value && value >= 0) {
           e.preventDefault();
           onSubmit(value);
           value = undefined;
@@ -38,7 +43,7 @@
   />
 </label>
 {#if invalid}
-  <small class="text-danger dark:text-danger-light"
-    >Please enter a number between 0 and 9999.</small
-  >
+  <small class="text-danger dark:text-danger-light">
+    Please enter a positive number.
+  </small>
 {/if}

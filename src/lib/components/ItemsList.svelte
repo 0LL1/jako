@@ -1,30 +1,14 @@
 <script lang="ts">
   import { X } from "$lib/components/Icons.svelte";
-  import { itemDialogState } from "$lib/state.svelte";
-  import type { ItemType, PersonId } from "$lib/types";
+  import { open } from "$lib/components/ItemDialog.svelte";
+  import type { ItemType } from "$lib/types";
 
   type Props = {
-    personId: PersonId;
     type: ItemType;
     items: number[];
   };
 
-  let { personId, type, items = $bindable([]) }: Props = $props();
-
-  function selectToEdit(index: number): void {
-    itemDialogState.value = {
-      personId,
-      type,
-      index,
-      value: items[index],
-    };
-
-    const dialogElement: HTMLDialogElement | null =
-      document.querySelector("#edit-item");
-    if (dialogElement) {
-      dialogElement.showModal();
-    }
-  }
+  let { type, items = $bindable([]) }: Props = $props();
 
   function removeItem(index: number): void {
     items = items.filter((_, i) => i !== index);
@@ -34,15 +18,24 @@
 <div class="flex flex-wrap gap-1">
   {#each items as item, index (index)}
     <div
-      class="text-dark focus:ring-dark flex items-center rounded-full hover:brightness-110"
-      class:bg-blue={type === "total"}
-      class:bg-green={type === "forSelf"}
-      class:bg-red={type === "forOther"}
+      class={[
+        "text-dark focus-outline flex items-center rounded-full hover:brightness-110",
+        type === "total" && "bg-blue",
+        type === "forSelf" && "bg-green",
+        type === "forOther" && "bg-red",
+      ]}
     >
       <button
         type="button"
         class="btn bg-transparent text-sm font-extrabold"
-        onclick={() => selectToEdit(index)}
+        onclick={() =>
+          open({
+            value: item,
+            type,
+            callback: (value: number): void => {
+              items[index] = value;
+            },
+          })}
       >
         {item.toFixed(2)}
       </button>

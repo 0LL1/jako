@@ -11,10 +11,12 @@
 
 {#snippet total(type: ItemType, items?: number[])}
   <div
-    class="text-xl underline decoration-8"
-    class:decoration-blue={type === "total"}
-    class:decoration-green={type === "forSelf"}
-    class:decoration-red={type === "forOther"}
+    class={[
+      "text-xl underline decoration-8",
+      type === "total" && "decoration-blue",
+      type === "forSelf" && "decoration-green",
+      type === "forOther" && "decoration-red",
+    ]}
   >
     {reduced(items).toFixed(2)}
   </div>

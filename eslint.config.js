@@ -44,6 +44,14 @@ export default [
           ignoreRestSiblings: true,
         },
       ],
+      "svelte/button-has-type": [
+        "error",
+        {
+          button: true,
+          submit: true,
+          reset: true,
+        },
+      ],
     },
   },
 ];
