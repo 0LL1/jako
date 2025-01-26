@@ -2,7 +2,8 @@
 
 @plugin "@tailwindcss/forms";
 
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant aria-invalid (&[aria-invalid="true"]);
 
 @theme {
   --font-*: initial;
@@ -48,19 +49,10 @@
     @apply rounded-full;
     @apply border-none bg-gray-100;
     @apply dark:text-light dark:bg-gray-800;
+    @apply focus-outline invalid-outline;
 
     &:hover {
       @apply brightness-95 dark:brightness-125;
-    }
-
-    &:focus {
-      @apply outline-none;
-      @apply ring-2;
-      @apply ring-focus dark:ring-focus-light;
-    }
-
-    &[aria-invalid="true"] {
-      @apply ring-danger dark:ring-danger-light;
     }
   }
 
@@ -72,15 +64,22 @@
     @apply rounded-full;
     @apply px-2 py-1;
     @apply whitespace-nowrap;
+    @apply focus-outline;
 
     &:hover {
       @apply bg-gray-100 dark:bg-gray-800;
     }
-
-    &:focus {
-      @apply outline-none;
-      @apply ring-2;
-      @apply ring-focus dark:ring-focus-light;
-    }
   }
+}
+
+@utility focus-outline {
+  @apply focus-visible:outline-3;
+  @apply focus-visible:outline-offset-0;
+  @apply focus-visible:outline-focus focus-visible:dark:outline-focus-light;
+}
+
+@utility invalid-outline {
+  @apply aria-invalid:outline-3;
+  @apply aria-invalid:outline-offset-0;
+  @apply aria-invalid:outline-danger aria-invalid:dark:outline-danger-light;
 }

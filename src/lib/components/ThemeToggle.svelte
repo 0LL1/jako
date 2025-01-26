@@ -3,9 +3,9 @@
   import { themeState } from "$lib/state.svelte";
 
   function toggleTheme(): void {
-    themeState.value = themeState.value === "light" ? "dark" : "light";
+    themeState.current = themeState.current === "light" ? "dark" : "light";
 
-    if (themeState.value === "dark") {
+    if (themeState.current === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
@@ -19,7 +19,7 @@
   class="btn size-10 p-0"
   aria-label="Toggle theme"
 >
-  {#if themeState.value === "light"}
+  {#if themeState.current === "light"}
     <Sun class="size-8" />
   {:else}
     <Moon class="size-8" />

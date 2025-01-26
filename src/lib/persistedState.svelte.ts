@@ -55,11 +55,11 @@ export class PersistedState<T> {
     }
   }
 
-  get value(): T {
+  get current(): T {
     return this.#state || this.#initialValue;
   }
 
-  set value(newValue: T) {
+  set current(newValue: T) {
     this.#state = newValue;
   }
 

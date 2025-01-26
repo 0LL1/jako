@@ -45,43 +45,37 @@
         </div>
       </div>
       <div class="space-y-2">
-        <ItemInput
-          label="Total"
-          onSubmit={(value: number): number => person.total.push(value)}
-          autofocus
-        />
-        {#if netAmount < 0}
-          <small class=" text-danger dark:text-danger-light">
-            Net amount is negative. Please adjust the total amount.
-          </small>
-        {/if}
-        <ItemsList
-          personId={person.id}
-          type="total"
-          bind:items={person.total}
-        />
+        <div>
+          <ItemInput
+            label="Total"
+            onSubmit={(value: number): number => person.total.push(value)}
+            autofocus
+          />
+          {#if netAmount < 0}
+            <small class="text-danger dark:text-danger-light">
+              Net amount is negative. Please adjust the total amount.
+            </small>
+          {/if}
+        </div>
+        <ItemsList type="total" bind:items={person.total} />
       </div>
       <div class="space-y-2">
-        <ItemInput
-          label="For self"
-          onSubmit={(value: number): number => person.forSelf.push(value)}
-        />
-        <ItemsList
-          personId={person.id}
-          type="forSelf"
-          bind:items={person.forSelf}
-        />
+        <div>
+          <ItemInput
+            label="For self"
+            onSubmit={(value: number): number => person.forSelf.push(value)}
+          />
+        </div>
+        <ItemsList type="forSelf" bind:items={person.forSelf} />
       </div>
       <div class="space-y-2">
-        <ItemInput
-          label="For other"
-          onSubmit={(value: number): number => person.forOther.push(value)}
-        />
-        <ItemsList
-          personId={person.id}
-          type="forOther"
-          bind:items={person.forOther}
-        />
+        <div>
+          <ItemInput
+            label="For other"
+            onSubmit={(value: number): number => person.forOther.push(value)}
+          />
+        </div>
+        <ItemsList type="forOther" bind:items={person.forOther} />
       </div>
     </fieldset>
   {/if}

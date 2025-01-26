@@ -10,29 +10,30 @@
   let minimized: boolean = $state(false);
 </script>
 
-{#if personOneState.value?.name || personTwoState.value?.name}
+{#if personOneState.current?.name || personTwoState.current?.name}
   <footer
     class="bg-light dark:bg-dark dark:text-light sticky bottom-0 z-10 space-y-4 p-4 shadow dark:border-t dark:border-gray-800 dark:shadow-none"
   >
     <div class="flex gap-2">
-      {#if personOneState.value?.name && personTwoState.value?.name}
+      {#if personOneState.current?.name && personTwoState.current?.name}
         <div class="mx-auto">
           <TotalDifference
-            personOne={personOneState.value}
-            personTwo={personTwoState.value}
+            personOne={personOneState.current}
+            personTwo={personTwoState.current}
           />
           <TotalCost
-            personOne={personOneState.value}
-            personTwo={personTwoState.value}
+            personOne={personOneState.current}
+            personTwo={personTwoState.current}
           />
         </div>
       {/if}
       <button
+        type="button"
         onclick={(): boolean => (minimized = !minimized)}
         class="btn size-8 self-start p-0"
         aria-label="Toggle footer"
       >
-        <div class:rotate-180={minimized}>
+        <div class={{ "rotate-180": minimized }}>
           <CaretDown class="size-6" />
         </div>
       </button>
@@ -44,8 +45,8 @@
           duration: 200,
         }}
       >
-        <PersonTotals person={personOneState.value} />
-        <PersonTotals person={personTwoState.value} />
+        <PersonTotals person={personOneState.current} />
+        <PersonTotals person={personTwoState.current} />
       </div>
     {/if}
   </footer>

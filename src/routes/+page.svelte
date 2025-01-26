@@ -5,11 +5,11 @@
 
 <div class="grid gap-4 md:grid-cols-2">
   <PersonForm
-    person={personOneState.value}
+    person={personOneState.current}
     clear={(): void => personOneState.reset()}
   />
   <PersonForm
-    person={personTwoState.value}
+    person={personTwoState.current}
     clear={(): void => personTwoState.reset()}
   />
 </div>

@@ -19,15 +19,15 @@
 
   let { data, children }: Props = $props();
 
-  personOneState.value = data.personOne;
-  personTwoState.value = data.personTwo;
-  themeState.value = data.theme;
+  personOneState.current = data.personOne;
+  personTwoState.current = data.personTwo;
+  themeState.current = data.theme;
 </script>
 
 <svelte:head>
   <meta
     name="theme-color"
-    content={`${themeState.value === "dark" ? "#030712" : "#ffffff"}`}
+    content={`${themeState.current === "dark" ? "#030712" : "#ffffff"}`}
   />
 </svelte:head>
 
