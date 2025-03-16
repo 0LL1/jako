@@ -1,6 +1,5 @@
 <script lang="ts">
   import { calculateNetAmount } from "$lib/calc";
-  import { Pencil, X } from "$lib/components/Icons.svelte";
   import ItemInput from "$lib/components/ItemInput.svelte";
   import ItemsList from "$lib/components/ItemsList.svelte";
   import NameInput from "$lib/components/NameInput.svelte";
@@ -31,15 +30,11 @@
             onclick={(): string => (person.name = "")}
             class="btn text-sm"
           >
-            <span>
-              <Pencil class="size-4" />
-            </span>
+            <span class="icon-[ph--pencil-simple-bold] size-4"></span>
             <span>Change name</span>
           </button>
           <button type="button" onclick={clear} class="btn text-sm">
-            <span>
-              <X class="size-4" />
-            </span>
+            <span class="icon-[ph--x-bold] size-4"></span>
             <span>Clear</span>
           </button>
         </div>

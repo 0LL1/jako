@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { GitHubLogo } from "$lib/components/Icons.svelte";
   import ThemeToggle from "$lib/components/ThemeToggle.svelte";
   import "@fontsource-variable/outfit";
 </script>
 
 <header
-  class="bg-light text-dark dark:bg-dark dark:text-light sticky top-0 z-10 flex items-center justify-between p-4 shadow dark:border-b dark:border-gray-800 dark:shadow-none"
+  class="sticky top-0 z-10 flex items-center justify-between bg-light p-4 text-dark shadow dark:border-b dark:border-gray-800 dark:bg-dark dark:text-light dark:shadow-none"
 >
   <h1 class="text-4xl font-extrabold">JAKO</h1>
 
@@ -18,7 +17,7 @@
       class="btn size-10 p-0"
       aria-label="GitHub repository"
     >
-      <GitHubLogo class="size-8" />
+      <span class="icon-[ph--github-logo] size-8"></span>
     </a>
   </div>
 </header>

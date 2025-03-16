@@ -33,7 +33,7 @@
 
 <ItemDialog />
 <div
-  class="dark:bg-dark dark:text-light grid h-screen grid-rows-[auto_1fr_auto]"
+  class="grid h-screen grid-rows-[auto_1fr_auto] dark:bg-dark dark:text-light"
 >
   <Header />
   <main class="mx-auto w-full max-w-screen-xl px-4 py-8">

@@ -1,5 +1,4 @@
 <script lang="ts" module>
-  import { Pencil, X } from "$lib/components/Icons.svelte";
   import ItemInput from "$lib/components/ItemInput.svelte";
   import type { ItemType } from "$lib/types";
 
@@ -33,7 +32,7 @@
 <dialog
   bind:this={dialogElement}
   class={[
-    "bg-light text-dark dark:bg-dark dark:text-light z-20 m-auto min-w-88 rounded-lg border-8 p-8 shadow-lg dark:shadow-none",
+    "shadow-lg z-20 m-auto min-w-88 rounded-lg border-8 bg-light p-8 text-dark dark:bg-dark dark:text-light dark:shadow-none",
     typeState === "total" && "border-blue",
     typeState === "forSelf" && "border-green",
     typeState === "forOther" && "border-red",
@@ -42,14 +41,14 @@
   {#key valueState}
     <div class="absolute top-0 left-0 flex w-full justify-between gap-4 p-1">
       <div class="flex size-8 items-center justify-center">
-        <Pencil
+        <span
           class={[
-            "size-6",
+            "icon-[ph--pencil-simple-bold] size-6",
             typeState === "total" && "text-blue",
             typeState === "forSelf" && "text-green",
             typeState === "forOther" && "text-red",
           ]}
-        />
+        ></span>
       </div>
       <button
         type="button"
@@ -57,7 +56,7 @@
         class="btn size-8 self-start p-0"
         aria-label="Close dialog"
       >
-        <X class="size-6" />
+        <span class="icon-[ph--x-bold] size-6"></span>
       </button>
     </div>
     <ItemInput

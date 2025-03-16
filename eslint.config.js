@@ -11,25 +11,12 @@ export default [
   ...svelte.configs["flat/recommended"],
   prettier,
   ...svelte.configs["flat/prettier"],
+  { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   {
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
-    },
+    files: ["**/*.svelte", "**/*.svelte.ts"],
+    languageOptions: { parserOptions: { parser: ts.parser } },
   },
-  {
-    files: ["**/*.svelte"],
-    languageOptions: {
-      parserOptions: {
-        parser: ts.parser,
-      },
-    },
-  },
-  {
-    ignores: ["build/", ".svelte-kit/", "dist/"],
-  },
+  { ignores: ["build/", ".svelte-kit/", "dist/"] },
   {
     rules: {
       "@typescript-eslint/no-unused-vars": [
@@ -46,11 +33,7 @@ export default [
       ],
       "svelte/button-has-type": [
         "error",
-        {
-          button: true,
-          submit: true,
-          reset: true,
-        },
+        { button: true, submit: true, reset: true },
       ],
     },
   },

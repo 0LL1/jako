@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { X } from "$lib/components/Icons.svelte";
   import { open } from "$lib/components/ItemDialog.svelte";
   import type { ItemType } from "$lib/types";
 
@@ -19,7 +18,7 @@
   {#each items as item, index (index)}
     <div
       class={[
-        "text-dark focus-outline flex items-center rounded-full hover:brightness-110",
+        "focus-outline flex items-center rounded-full text-dark hover:brightness-110",
         type === "total" && "bg-blue",
         type === "forSelf" && "bg-green",
         type === "forOther" && "bg-red",
@@ -45,7 +44,7 @@
         onclick={(): void => removeItem(index)}
         aria-label="Remove item"
       >
-        <X class="size-4" />
+        <span class="icon-[ph--x-bold] size-4"></span>
       </button>
     </div>
   {/each}

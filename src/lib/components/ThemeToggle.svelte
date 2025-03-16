@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Moon, Sun } from "$lib/components/Icons.svelte";
   import { themeState } from "$lib/state.svelte";
 
   function toggleTheme(): void {
@@ -20,8 +19,8 @@
   aria-label="Toggle theme"
 >
   {#if themeState.current === "light"}
-    <Sun class="size-8" />
+    <span class="icon-[ph--sun-bold] size-8"></span>
   {:else}
-    <Moon class="size-8" />
+    <span class="icon-[ph--moon-bold] size-8"></span>
   {/if}
 </button>

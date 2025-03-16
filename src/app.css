@@ -1,9 +1,5 @@
 @import "tailwindcss";
-
-@plugin "@tailwindcss/forms";
-
-@custom-variant dark (&:where(.dark, .dark *));
-@custom-variant aria-invalid (&[aria-invalid="true"]);
+@plugin "@iconify/tailwind4";
 
 @theme {
   --font-*: initial;
@@ -23,63 +19,96 @@
   --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-@layer base {
-  ::backdrop {
-    @apply bg-dark/50;
+@custom-variant dark {
+  &:where(.dark, .dark *) {
+    @slot;
   }
+}
 
+@custom-variant aria-invalid {
+  &[aria-invalid="true"] {
+    @slot;
+  }
+}
+
+@layer base {
   html {
-    @apply bg-light;
-    @apply scheme-light;
+    @apply bg-light text-dark scheme-light;
 
-    &.dark {
-      @apply bg-dark;
-      @apply scheme-dark;
+    @variant dark {
+      @apply bg-dark text-light scheme-dark;
     }
   }
 
   body {
     @apply font-body;
-    @apply bg-light dark:bg-dark;
   }
-}
 
-@layer components {
-  .input {
-    @apply rounded-full;
-    @apply border-none bg-gray-100;
-    @apply dark:text-light dark:bg-gray-800;
-    @apply focus-outline invalid-outline;
+  dialog {
+    @apply opacity-0 transition-[opacity,display,overlay] transition-discrete;
 
-    &:hover {
-      @apply brightness-95 dark:brightness-125;
+    @variant open {
+      @apply opacity-100;
+
+      @variant starting {
+        @apply opacity-0;
+      }
+
+      @variant backdrop {
+        @apply opacity-50;
+
+        @variant starting {
+          @apply opacity-0;
+        }
+      }
     }
-  }
 
-  .btn {
-    @apply flex;
-    @apply items-center;
-    @apply gap-1;
-    @apply justify-center;
-    @apply rounded-full;
-    @apply px-2 py-1;
-    @apply whitespace-nowrap;
-    @apply focus-outline;
-
-    &:hover {
-      @apply bg-gray-100 dark:bg-gray-800;
+    @variant backdrop {
+      @apply bg-dark opacity-0 transition-[opacity,display,overlay] transition-discrete;
     }
   }
 }
 
-@utility focus-outline {
-  @apply focus-visible:outline-3;
-  @apply focus-visible:outline-offset-0;
-  @apply focus-visible:outline-focus focus-visible:dark:outline-focus-light;
+@utility input {
+  @apply rounded-full border-none bg-gray-100 px-3 py-2 outline-3 outline-offset-0 outline-transparent;
+
+  @variant dark {
+    @apply bg-gray-800 text-light;
+  }
+
+  @variant focus-visible {
+    @apply outline-focus;
+
+    @variant dark {
+      @apply outline-focus-light;
+    }
+  }
+
+  @variant aria-invalid {
+    @apply outline-danger;
+
+    @variant dark {
+      @apply outline-danger-light;
+    }
+  }
+
+  @variant hover {
+    @apply brightness-95;
+
+    @variant dark {
+      @apply brightness-125;
+    }
+  }
 }
 
-@utility invalid-outline {
-  @apply aria-invalid:outline-3;
-  @apply aria-invalid:outline-offset-0;
-  @apply aria-invalid:outline-danger aria-invalid:dark:outline-danger-light;
+@utility btn {
+  @apply flex items-center justify-center gap-1 rounded-full px-2 py-1 whitespace-nowrap outline-3 outline-offset-0 outline-transparent;
+
+  @variant focus-visible {
+    @apply outline-focus;
+
+    @variant dark {
+      @apply outline-focus-light;
+    }
+  }
 }
